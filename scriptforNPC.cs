@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class scriptforNPC : MonoBehaviour
 {
-    Vector3 newPosition;
+    Vector3 newPosition = 0;
     public float speed = 1.5f;
-    public ushort health = 5, level; // создание переменных
+    public ushort health = 5, level = 1; // Г±Г®Г§Г¤Г Г­ГЁГҐ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»Гµ
     void Start()
     {
-        health += level; //прибавление к здоровью уровня игрока
-        print(health); //вывод количества здоровья
+        health += level; //ГЇГ°ГЁГЎГ ГўГ«ГҐГ­ГЁГҐ ГЄ Г§Г¤Г®Г°Г®ГўГјГѕ ГіГ°Г®ГўГ­Гї ГЁГЈГ°Г®ГЄГ 
+        print(health); //ГўГ»ГўГ®Г¤ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  Г§Г¤Г®Г°Г®ГўГјГї
     }
 
 
