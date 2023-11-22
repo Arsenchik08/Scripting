@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class scriptforNPC : MonoBehaviour
 {
-    Vector3 newPosition = (0, 0, 0);
+    Vector3 newPosition = transform.position;
     public float speed = 1.5f;
     public ushort health = 5, level = 1; // ñîçäàíèå ïåðåìåííûõ
     void Start()
