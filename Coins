@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Coins : MonoBehaviour
+{
+    public int coins = 1;
+    void Update()
+    {
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Player player = GetComponent<Player>();
+        player.CollectCoins(coins);
+        Destroy(gameObject);
+    }
+}
