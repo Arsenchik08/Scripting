@@ -5,13 +5,12 @@ using UnityEngine;
 public class Missily : MonoBehaviour
 {
     public float speed;
-    void Start()
-    {
-        Destroy(gameObject, 3);
-    }
+    
     void Update()
     {
+
         transform.position += transform.forward * speed * Time.deltaTime;
+  Destroy(gameObject, 3);
     }
     private void OnTriggerEnter(Collider other)
     {
