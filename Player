@@ -7,9 +7,10 @@ public class Player : MonoBehaviour
     public GameObject fireballPrefab;
     public Transform attackPoint;
     protected int health = 10;
-    public void CollectCoins(int coins)
+    protected int coins;
+    public void CollectCoins(int coin)
     {
-        coins += 1;
+        coins +=coin;
     }
     public void TakeDamage(int damage)
     {
