@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Temp : MonoBehaviour
+{
+    public float normalTemperature = 36.6f;
+    public float currentTemperature = 36.6f;
+    public float minimalTemperature = 5.5f;
+    public float speedTemperature = 0.75f;
+    public Player player;
+    public int damage = 2;
+    public float timeDelay = 2f;
+
+    void Update()
+    {
+        currentTemperature -= speedTemperature * Time.deltaTime;
+        if (currentTemperature < minimalTemperature)
+        {
+            timeDelay -= Time.deltaTime;
+            if (timeDelay <= 0)
+            {
+                timeDelay = 2;
+                player.TakeDamage(damage);
+            }
+        }
+    }
+}
