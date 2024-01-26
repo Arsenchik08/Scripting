@@ -5,9 +5,22 @@ using UnityEngine;
 public class Bonfire : MonoBehaviour
 {
     public float heatSpeed = 1.5f;
+    public float lifeTime = 15f;
+    public GameObject fireEffect;
+    public GameObject bonfire;
     void Update()
     {
         
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0)
+        {
+            Destroy( fireEffect );
+            bonfire.GetComponent<Bonfire>().enabled = false;
+
+        }
     }
     public void OnTriggerStay(Collider other)
     {
