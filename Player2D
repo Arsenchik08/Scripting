@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class Player : MonoBehaviour
+{
+    public static int score = 0;
+    public static List<target> squares;
+
+
+    public static void Defeat() { 
+        score = 0;
+        PlayerUI.ShowDefeatPanel;
+    }
+    private void Awake()
+    {
+        squares = new List<target>();
+    }
+
+    public static void Victory()
+    {
+
+        PlayerUI.ShowVictoryPanel;
+    }
+
+    public static void Restart()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(index);
+    }
+}
