@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spawner : MonoBehaviour
+{
+    public GameObject prefab;
+    public Transform leftBorder;
+    public Transform rightBorder;
+    public float spawnInterval;
+    public float spawnTimer;
+    public void Spawn()
+    {
+        Vector2 newPosition = transform.position;
+        newPosition.x = Random.Range(leftBorder.position.x, rightBorder.position.x);
+        Instantiate(prefab, newPosition, Quaternion.identity);
+        spawnTimer = spawnInterval;
+
+    }
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        spawnTimer -= Time.time;
+        if(spawnTimer <= 0 ) { Spawn(); }
+
+
+
+    }
+}
