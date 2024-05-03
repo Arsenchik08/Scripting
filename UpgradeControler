@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class XBow : MonoBehaviour
+{
+    public float shootInterval = 0.75f;
+    public float shootTimer = 0;
+    public GameObject bolt;
+    void Update()
+    {
+        if (shootTimer > 0)
+        {
+            shootTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mouseScreenPos = Input.mousePosition;
+            Vector2 mouseScenePos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+
+            Vector2 bowPos = transform.position;
+            Vector2 wantedDirection = mouseScenePos - bowPos;
+            Vector2 defaultDirection = Vector2.up;
+
+            float angle = Vector2.SignedAngle(wantedDirection, defaultDirection);
+            Vector3 newEuler = new Vector3(transform.position.x, transform.position.y, angle);
+            transform.localEulerAngles = newEuler;
+
+            if (shootTimer <= 0)
+            {
+                Instantiate(bolt, transform.position, transform.rotation);
+                shootTimer = shootInterval;
+            }
+
+        }
+
+        
+    }
+}
